@@ -1,0 +1,17 @@
+.mainDiv{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    height: 100vh;
+    z-index: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* background-image: url('../photos/bg_main.jpg'); */
+    background-position:center;
+    background-size:cover;
+    background-repeat: no-repeat;
+}
