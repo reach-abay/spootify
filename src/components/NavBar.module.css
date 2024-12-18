@@ -1,0 +1,13 @@
+.manDiv{
+    height: 60px;
+    
+    position: fixed;
+    top: 0;
+    width: 100%;
+    font-family:ubuntu_font;
+    background-color: grey;
+}
+@font-face {
+    font-family:ubuntu_font ;
+    src: url(../fonts/Ubuntu/Ubuntu-Regular.ttf);
+  }

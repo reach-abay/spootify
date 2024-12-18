@@ -1,27 +1,26 @@
 import classes from './Login.module.css'
 import logo from '../Photos/logo.png'
-import { useLocation } from 'react-router-dom';     
-import { useNavigate } from 'react-router-dom';
+import { useLocation,useNavigate } from 'react-router-dom';     
 import { authContext } from "../App.js";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 export default function Login() {
 
-    const location = useLocation();
-    const params = new URLSearchParams(location.hash || location.search);
-    const code = params.get('code');
-    const navigate = useNavigate(); 
+    const { refreshToken, setRefreshToken,authToken,setAuthToken,authAlive,setAuthAlive } = useContext(authContext);
+    const location  = useLocation();
+    const navigate  = useNavigate(); 
+    const params    = new URLSearchParams(location.hash || location.search);
+    const code      = params.get('code');
 
-    const { refreshToken, setRefreshToken,authToken,setAuthToken } = useContext(authContext);
-
-    const postData = new URLSearchParams({
+    const postData  = new URLSearchParams({
         grant_type: "authorization_code",
         redirect_uri: "http://localhost:3000/",
         code: code
     });
 
-    if(code!=null){
-        //insert API here
+    //if redirected after the user authorization code is obtained
+    if(code!=null && authAlive===false){
+        //do authentication to get authtoken and refreshtoken
         fetch("https://accounts.spotify.com/api/token",{
         method:"POST",
         headers:{
@@ -36,14 +35,16 @@ export default function Login() {
             }
             else {
                 return response.json().then(data => {
-                alert("Auth Fail: " + data.error_description); // handle the error message
+                alert("Fetching tokens failed miserably with : " + data.error_description); // handle the error message
+                navigate('/Login');
             });
             }
-
         }).then(data => {
             if (data) {
                setAuthToken(data.access_token);
-               console.log(data.access_token); // here you can access the access token from the response
+               setRefreshToken(data.refresh_token);
+               setAuthAlive(true);
+               //console.log(data.access_token); // here you can access the access token from the response
                navigate('/Home'); 
             }
         })
@@ -62,7 +63,7 @@ export default function Login() {
                 <h5>No regard to Safety.No regard to Security.</h5>
             </div>
             <div className={classes.footer2}>
-                <h6>v0.1</h6>
+                <h6>v0.11</h6>
             </div>
         </div>)
 }
