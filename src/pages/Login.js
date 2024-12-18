@@ -55,7 +55,7 @@ export default function Login() {
         <div className={classes.contentDiv}>
             <img className={classes.logo} src={logo} alt=''></img>
             <h2 className={classes.welcomeH2}>Welcome to Spootify</h2>
-            <a href='https://accounts.spotify.com/authorize?client_id=3228895feb1647bf9566fbf45cd13857&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2F&scope=user-read-private%20user-read-email'  target='_blank' rel="noreferrer" className={classes.SignIn}>Sign In with Spotify
+            <a  href='https://accounts.spotify.com/authorize?client_id=3228895feb1647bf9566fbf45cd13857&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2F&scope=user-read-private%20user-read-email'  target='_self' rel="noreferrer" className={classes.SignIn}>Sign In with Spotify
                 {/* <img className={classes.logo} src={logo} alt=''></img> */}
             </a>
         </div>

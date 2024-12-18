@@ -12,6 +12,7 @@ function App() {
   const [refreshToken,setRefreshToken]  =useState(null);
   const [authToken,setAuthToken]        =useState(null);
   const [authAlive,setAuthAlive]        =useState(false);
+  const [userProfileData,setUserProfileData] = useState({});
 
 
     //put default auth things here
@@ -21,7 +22,7 @@ function App() {
 
 
   return (
-   <authContext.Provider value={{ refreshToken, setRefreshToken,authToken,setAuthToken,authAlive,setAuthAlive}}>
+   <authContext.Provider value={{ refreshToken, setRefreshToken,authToken,setAuthToken,authAlive,setAuthAlive,userProfileData,setUserProfileData}}>
     <BrowserRouter>
       <Routes>       
         <Route path="/" element={<Login />} />

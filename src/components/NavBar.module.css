@@ -1,11 +1,54 @@
-.manDiv{
-    height: 60px;
-    
+.mainDiv{
+    height: 60px;   
     position: fixed;
     top: 0;
     width: 100%;
     font-family:ubuntu_font;
     background-color: grey;
+    display: flex;
+    flex-grow: 1;
+}
+.logoDiv{
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(83, 83, 83, 0.842);  
+}
+.logo{
+    height: 35px;
+    width: 35px;
+    padding: 12px;
+}
+.screensDiv{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.option{
+    height: 100%;
+    align-content: center;  
+    padding: 0 20px 0 20px ;
+    background-color: rgba(83, 83, 83, 0.842);  
+}
+.userMenuDiv{
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(83, 83, 83, 0.842); 
+    position: relative;  
+    padding: 9px;   
+}
+.userDataDiv{
+    position: absolute;
+    top: 60px;
+    width: 350px;
+    background-color: rgba(255, 242, 242, 0.842); 
+    display: flex;
+    flex-direction: column;
+    padding: 9px;
 }
 @font-face {
     font-family:ubuntu_font ;

@@ -1,5 +1,8 @@
 .mainDiv{
     padding-top: 60px;
+    height: calc(100vh - 60px);     
+    display: flex;
+    
 }
 .authDiv{
     font-family:ubuntu_font;
@@ -7,7 +10,8 @@
     bottom: 0;
     font-size: 8px;
 }
+
 @font-face {
     font-family:ubuntu_font ;
     src: url(../fonts/Ubuntu/Ubuntu-Regular.ttf);
-  }
+}
